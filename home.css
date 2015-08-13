@@ -1,2 +1,22 @@
 
-span { font-size: 20px; color: green}
+span {
+    font-size: 20px;
+    color: green
+}
+
+#s1 {
+    color: orange
+}
+
+div.borda {
+    border: 5px solid red;
+    margin: 10px 10px 10px 10px;
+    padding: 10px 10px 10px 10px;
+}
+div.borda:hover {
+    border: 10px dotted yellow;
+}
+
+.borda {
+    border: 5px solid blue;
+}
