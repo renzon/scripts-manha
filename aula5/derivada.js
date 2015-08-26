@@ -29,3 +29,45 @@ var parabola_derivada= derivar(parabola);
 
 console.log(parabola_derivada(1));
 console.log(parabola_derivada(2));
+
+
+function a(){
+  console.log('Execuntando A');
+  return 'A';
+}
+
+
+function decorador(funcao){
+  function funcaoDecorada(){
+    console.log('Antes');
+    var retornoDeFuncao=funcao.apply(funcao,arguments);
+    console.log('Depois');
+    return retornoDeFuncao;
+  }
+
+  return funcaoDecorada;
+
+}
+
+a=decorador(a);
+
+console.log(a());
+
+function f(a, b, c){
+  console.log(a+b+c);
+  return a, b, c;
+}
+
+f=decorador(f);
+
+console.log(f(1,2,3));
+
+
+
+
+
+
+
+
+
+
