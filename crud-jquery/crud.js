@@ -28,13 +28,22 @@ $(document).ready(function () {
 
   }
 
+  function listarCategorias(categorias){
+    $.each(categorias, function(i, cat){
+      adicionarCategoria(cat);
+    })
+  }
+
+  var categoriasFake=[{"id": 5910974510923776, "nome": "Notebook 2", "creation": "09/08/2015 16:44:20"}, {"id": 6473924464345088, "nome": "Celular", "creation": "09/08/2015 17:29:42"}, {"id": 5275456790069248, "nome": "Celular", "creation": "09/09/2015 09:12:05"}];
+  listarCategorias(categoriasFake);
+
   function mostrarErros(erros) {
     var helpBlockPrefixo = '#help-block-';
     var formGroupPrefixo = '#form-group-';
-    for (var propriedade in erros) {
+    $.each(erros,function(i,propriedade){
       $(helpBlockPrefixo + propriedade).text(erros[propriedade]);
       $(formGroupPrefixo + propriedade).addClass('has-error');
-    }
+    });
   }
 
   $('#form-categoria').submit(function (evento) {
