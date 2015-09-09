@@ -16,8 +16,10 @@ $(document).ready(function () {
 
   function mostrarErros(erros){
     var helpBlockPrefixo='#help-block-';
+    var formGroupPrefixo='#form-group-';
     for(var propriedade in erros){
       $(helpBlockPrefixo+propriedade).text(erros[propriedade]);
+      $(formGroupPrefixo+propriedade).addClass('has-error');
     }
   }
 
