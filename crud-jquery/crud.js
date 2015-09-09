@@ -15,6 +15,10 @@ $(document).ready(function () {
     $helpBlocks.text('');
   }
 
+  $.get('http://localhost:8080/categorias/rest',function(categorias){
+    console.log(categorias);
+  },'json');
+
   function adicionarCategoria(categoria) {
     var linha = '<tr>';
     linha += '<td>' + categoria.id + '</td>';
