@@ -31,6 +31,7 @@ $(document).ready(function () {
     var $linhaObjeto = $(linha);
     var $botao = $linhaObjeto.find('button.btn').click(function () {
       console.log(categoria.id);
+      $linhaObjeto.remove();
     });
 
     $tabelaCategoria.append($linhaObjeto);
