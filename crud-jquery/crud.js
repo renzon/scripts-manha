@@ -44,8 +44,8 @@ $(document).ready(function () {
   function mostrarErros(erros) {
     var helpBlockPrefixo = '#help-block-';
     var formGroupPrefixo = '#form-group-';
-    $.each(erros,function(i,propriedade){
-      $(helpBlockPrefixo + propriedade).text(erros[propriedade]);
+    $.each(erros, function (propriedade, valorDaPropriedade) {
+      $(helpBlockPrefixo + propriedade).text(valorDaPropriedade);
       $(formGroupPrefixo + propriedade).addClass('has-error');
     });
   }
