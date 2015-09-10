@@ -28,7 +28,12 @@ $(document).ready(function () {
     linha += '<button class="btn btn-danger btn-sm"><i class="glyphicon glyphicon-trash"></i></button>';
     linha += '</td ></tr>';
 
-    $tabelaCategoria.append(linha);
+    var $linhaObjeto = $(linha);
+    var $botao = $linhaObjeto.find('button.btn').click(function () {
+      console.log(categoria.id);
+    });
+
+    $tabelaCategoria.append($linhaObjeto);
 
   }
 
