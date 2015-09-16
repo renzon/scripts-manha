@@ -67,16 +67,21 @@ $(document).ready(function () {
     evento.preventDefault();
     limparErros();
     var nome = $nomeInput.val();
-    if (nome === '') {
-      mostrarErros({'nome': 'Campo Obrigatório'})
-    } else {
-      adicionarCategoria({
-        "id": 5910974510923776,
-        "nome": nome,
-        "creation": "09/08/2015 16:44:20"
+    $.post('http://localhost:8080/categorias/rest/new',
+      {'nome': nome}).success(function (categoria) {
+        adicionarCategoria(categoria);
+        $nomeInput.val('');
       });
-      $nomeInput.val('');
-    }
+    //if (nome === '') {
+    //  mostrarErros({'nome': 'Campo Obrigatório'})
+    //} else {
+    //  adicionarCategoria({
+    //    "id": 5910974510923776,
+    //    "nome": nome,
+    //    "creation": "09/08/2015 16:44:20"
+    //  });
+    //
+    //}
 
   });
 
