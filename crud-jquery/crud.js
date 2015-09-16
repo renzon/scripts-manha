@@ -71,18 +71,8 @@ $(document).ready(function () {
       {'nome': nome}).success(function (categoria) {
         adicionarCategoria(categoria);
         $nomeInput.val('');
+      }).error(function (erros) {
+        mostrarErros(erros.responseJSON);
       });
-    //if (nome === '') {
-    //  mostrarErros({'nome': 'Campo Obrigatório'})
-    //} else {
-    //  adicionarCategoria({
-    //    "id": 5910974510923776,
-    //    "nome": nome,
-    //    "creation": "09/08/2015 16:44:20"
-    //  });
-    //
-    //}
-
   });
-
 });
