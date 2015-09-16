@@ -16,9 +16,9 @@ $(document).ready(function () {
     $helpBlocks.text('');
   }
 
-  $.get('http://localhost:8080/categorias/rest',function(categorias){
+  $.get('http://localhost:8080/categorias/rest', function (categorias) {
     console.log(categorias);
-  },'json');
+  }, 'json');
 
   function adicionarCategoria(categoria) {
     var linha = '<tr>';
@@ -39,11 +39,10 @@ $(document).ready(function () {
 
   }
 
-  function listarCategorias(categorias){
-    $.each(categorias, function(i, cat){
+  function listarCategorias(categorias) {
+    $.each(categorias, function (i, cat) {
       adicionarCategoria(cat);
     });
-    $listarAjaxLoader.fadeOut();
   }
 
   $listarAjaxLoader.show()
@@ -51,6 +50,8 @@ $(document).ready(function () {
     listarCategorias
   ).error(function () {
       alert('Não foi possível listar categorias');
+    }).always(function () {
+      $listarAjaxLoader.fadeOut();
     });
 
   function mostrarErros(erros) {
@@ -69,9 +70,11 @@ $(document).ready(function () {
     if (nome === '') {
       mostrarErros({'nome': 'Campo Obrigatório'})
     } else {
-      adicionarCategoria({"id": 5910974510923776,
+      adicionarCategoria({
+        "id": 5910974510923776,
         "nome": nome,
-        "creation": "09/08/2015 16:44:20"});
+        "creation": "09/08/2015 16:44:20"
+      });
       $nomeInput.val('');
     }
 
