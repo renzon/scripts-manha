@@ -27,12 +27,24 @@ $(document).ready(function () {
     linha += '<td>' + categoria.nome + '</td>';
     linha += '<td>';
     linha += '<button class="btn btn-danger btn-sm"><i class="glyphicon glyphicon-trash"></i></button>';
+    linha += '<img src="../img/ajax-loader.gif" hidden="hidden"/>';
     linha += '</td ></tr>';
 
     var $linhaObjeto = $(linha);
-    var $botao = $linhaObjeto.find('button.btn').click(function () {
-      console.log(categoria.id);
-      $linhaObjeto.remove();
+    var $botao = $linhaObjeto.find('button.btn');
+    var $ajaxLoader = $linhaObjeto.find('img');
+    $botao.click(function () {
+      $botao.hide();
+      $ajaxLoader.fadeIn();
+      $.post('http://localhost:8080/categorias/rest/delete',
+        {'id': categoria.id}).success(function () {
+          $linhaObjeto.remove();
+        }).error(function (erros) {
+          alert('Não é possível apagar no momento')
+          $ajaxLoader.hide();
+          $botao.fadeIn();
+        });
+
     });
 
     $tabelaCategoria.append($linhaObjeto);
