@@ -44,9 +44,7 @@ $(document).ready(function () {
     })
   }
 
-  $.get('http://localhost:8080/categorias/rest', function (categorias) {
-    console.log(categorias);
-  });
+  $.get('http://localhost:8080/categorias/rest', listarCategorias);
 
   function mostrarErros(erros) {
     var helpBlockPrefixo = '#help-block-';
