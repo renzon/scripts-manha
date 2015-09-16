@@ -3,7 +3,8 @@ $(document).ready(function () {
   var $formGroups = $('div.form-group');
   var $helpBlocks = $('span.help-block');
   var $nomeInput = $('#nome-input');
-  var $tabelaCategoria = $('#tabela-categoria')
+  var $tabelaCategoria = $('#tabela-categoria');
+  var $listarAjaxLoader = $('#listar-ajax-loader');
 
   $formWell.hide();
   $('#botao-nova-categoria').click(function () {
@@ -41,10 +42,16 @@ $(document).ready(function () {
   function listarCategorias(categorias){
     $.each(categorias, function(i, cat){
       adicionarCategoria(cat);
-    })
+    });
+    $listarAjaxLoader.fadeOut();
   }
 
-  $.get('http://localhost:8080/categorias/rest', listarCategorias);
+  $listarAjaxLoader.show()
+  $.get('http://localhost:8080/categorias/rest').success(
+    listarCategorias
+  ).error(function () {
+      alert('Não foi possível listar categorias');
+    });
 
   function mostrarErros(erros) {
     var helpBlockPrefixo = '#help-block-';
