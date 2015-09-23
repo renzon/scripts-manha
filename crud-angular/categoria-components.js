@@ -5,7 +5,16 @@
     return {
       restric: 'E',
       templateUrl: 'categoria-form.html',
-      replace: true
+      replace: true,
+      scope: {},
+      controller: function ($scope) {
+        $scope.categoria = {nome: 'Roger'};
+
+        $scope.salvar = function () {
+          console.log($scope.categoria);
+        }
+
+      }
     };
   });
 })();
