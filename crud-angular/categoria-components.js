@@ -1,5 +1,5 @@
 (function () {
-  var categoriaComponents = angular.module('categoria-components', []);
+  var categoriaComponents = angular.module('categoria-components', ['categoria-servicos']);
 
   categoriaComponents.directive('categoriaForm', function () {
     return {
@@ -7,11 +7,11 @@
       templateUrl: 'categoria-form.html',
       replace: true,
       scope: {},
-      controller: function ($scope) {
+      controller: function ($scope, CategoriaAPI) {
         $scope.categoria = {nome: 'Roger'};
 
         $scope.salvar = function () {
-          console.log($scope.categoria);
+          CategoriaAPI.salvar($scope.categoria);
         }
 
       }
