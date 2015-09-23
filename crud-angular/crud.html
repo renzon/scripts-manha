@@ -14,15 +14,20 @@
   <link href="../css/style.css" rel="stylesheet">
   <script src="../js/jquery.min.js"></script>
   <script src="../js/bootstrap.min.js"></script>
+  <script src="../js/angular.min.js"></script>
 
 
 </head>
 <body>
 
-<div class="container-fluid">
+<div class="container-fluid" ng-app>
   <div class="row">
     <div class="col-md-12">
-      <h1>Crud de Categoria </h1>
+      <h1>Crud de Categoria {{nome}}</h1>
+
+      <h1>Crud de Categoria {{'Olá '+nome}}</h1>
+      <input type="text" ng-model="nome"/>
+      <input type="text" ng-model="nome"/>
 
       <div class="well">
         <h1 class="text-center">Categoria Form</h1>
