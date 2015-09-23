@@ -16,6 +16,7 @@
   <script src="../js/bootstrap.min.js"></script>
   <script src="../js/angular.min.js"></script>
   <script src="categoria-app.js"></script>
+  <script src="categoria-components.js"></script>
 
 
 </head>
@@ -24,15 +25,12 @@
 <div class="container-fluid" ng-app="categoriaApp" ng-controller="CategoriaCtrl">
   <div class="row">
     <div class="col-md-12">
-      <h1>Crud de Categoria {{nome}}</h1>
-
-      <h1>Crud de Categoria {{'Olá '+nome}}</h1>
-      <input type="text" ng-model="nome"/>
-      <input type="text" ng-model="nome"/>
+      <h1>Crud de Categoria</h1>
 
       <div class="well">
         <h1 class="text-center">Categoria Form</h1>
-
+        <categoria-form></categoria-form>
+        <categoria-form></categoria-form>
         <form action="" method="post" role="form">
           <input type="hidden" value="97e4dda382f950ca8ba1c0fb1d830150" name="_csrf_code">
 
