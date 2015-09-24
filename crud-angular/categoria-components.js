@@ -6,7 +6,9 @@
       restric: 'E',
       templateUrl: 'categoria-form.html',
       replace: true,
-      scope: {},
+      scope: {
+        salvarCategoriaListener: '&salvar'
+      },
       controller: function ($scope, CategoriaAPI) {
         $scope.categoria = {nome: 'Roger'};
         $scope.erros = {};
@@ -16,7 +18,7 @@
           $scope.erros = {};
           $scope.salvandoCategoriaFlag = true;
           CategoriaAPI.salvar($scope.categoria, function (categoriaSalva) {
-            console.log(categoriaSalva);
+              $scope.salvarCategoriaListener({'categoria': categoriaSalva});
 
             },
             function (erros) {
