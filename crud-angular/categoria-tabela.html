@@ -1,5 +1,5 @@
 <div>
-  <h2>Lista de Categorias {{categorias}}</h2>
+  <h2>Lista de Categorias</h2>
   <table class="table table-striped table-hover">
     <thead>
     <tr>
@@ -9,19 +9,7 @@
     </tr>
     </thead>
     <tbody>
-    <tr>
-      <td>5910974510923776</td>
-      <td>09/08/2015 16:44:20</td>
-      <td>Notebook 2</td>
-      <td>
-        <form action="/categorias/home/delete/5910974510923776" method="post"
-              onsubmit="return confirm('Are you sure to delete? Press cancel to avoid deletion.');">
-          <input type="hidden" value="97e4dda382f950ca8ba1c0fb1d830150" name="_csrf_code">
-
-          <button class="btn btn-danger btn-sm"><i class="glyphicon glyphicon-trash"></i></button>
-        </form>
-      </td>
-    </tr>
+    <tr ng-repeat="cat in categorias" categoria-tabela-linha categoria="cat"></tr>
 
     </tbody>
   </table>

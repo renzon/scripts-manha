@@ -48,4 +48,20 @@
 
     };
   });
+
+
+  categoriaComponents.directive('categoriaTabelaLinha', function () {
+    return {
+      restric: 'A',
+      templateUrl: 'categoria-tabela-linha.html',
+      replace: true,
+      scope: {
+        categoria: '='
+      },
+      controller: function ($scope, CategoriaAPI) {
+
+      }
+
+    };
+  });
 })();
