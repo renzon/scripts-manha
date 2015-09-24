@@ -7,7 +7,6 @@
 
     $scope.adicionarCategoria = function (categoria) {
       $scope.categorias.unshift(categoria);
-      console.log($scope.categorias)
     }
 
   });

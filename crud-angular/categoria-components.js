@@ -7,7 +7,7 @@
       templateUrl: 'categoria-form.html',
       replace: true,
       scope: {
-        salvarCategoriaListener: '&salvar'
+        salvarCategoriaListener: '&'
       },
       controller: function ($scope, CategoriaAPI) {
         $scope.categoria = {nome: 'Roger'};
@@ -39,7 +39,9 @@
       restric: 'E',
       templateUrl: 'categoria-tabela.html',
       replace: true,
-      scope: {},
+      scope: {
+        categorias: '='
+      },
       controller: function ($scope, CategoriaAPI) {
 
       }
