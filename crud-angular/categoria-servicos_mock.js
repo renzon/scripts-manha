@@ -3,13 +3,13 @@
 
   categoriaServicos.factory('CategoriaAPI', function ($rootScope) {
     return {
-      salvar: function (categoria, callbackSucesso) {
+      salvar: function (categoria, callbackSucesso, callbackErro) {
         const delay = 2000;
         console.log('Chamada ajax fake para salvar inciando');
         var id = 0;
         setTimeout(function () {
           id++;
-          if (callbackSucesso) {
+          if (callbackSucesso && categoria.nome !== '') {
 
             const categoriaDoServidor = {
               'id': id,
@@ -17,8 +17,10 @@
               nome: categoria.nome
             };
             callbackSucesso(categoriaDoServidor);
-            $rootScope.$digest();
+          } else if (callbackErro && categoria.nome === '') {
+            callbackErro({'nome': 'Campo Obrigatório'});
           }
+          $rootScope.$digest();
         }, delay);
 
         console.log('Finalizando salvar do serviço');

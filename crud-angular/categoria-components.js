@@ -9,11 +9,17 @@
       scope: {},
       controller: function ($scope, CategoriaAPI) {
         $scope.categoria = {nome: 'Roger'};
-        $scope.categoriaSalva = {};
+        $scope.erros = {};
+
         $scope.salvar = function () {
+          $scope.erros = {};
           CategoriaAPI.salvar($scope.categoria, function (categoriaSalva) {
-            $scope.categoriaSalva = categoriaSalva;
             console.log(categoriaSalva);
+
+            },
+            function (erros) {
+              $scope.erros = erros;
+              console.log(erros);
           });
         }
 
