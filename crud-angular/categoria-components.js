@@ -43,7 +43,16 @@
         categorias: '='
       },
       controller: function ($scope, CategoriaAPI) {
+        $scope.listandoCategoriasFlag = true;
+        CategoriaAPI.listar(function (categorias) {
+          $.each(categorias, function (index, cat) {
+            $scope.categorias.push(cat);
+          });
+        }, function () {
 
+        }, function () {
+          $scope.listandoCategoriasFlag = false;
+        });
       }
 
     };

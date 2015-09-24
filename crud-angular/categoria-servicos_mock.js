@@ -28,6 +28,41 @@
         }, delay);
 
         console.log('Finalizando salvar do serviço');
+      },
+      listar: function (callbackSucesso, callbackErro, callbackAlways) {
+        const delay = 2000;
+        setTimeout(function () {
+          if (callbackSucesso) {
+
+            const categoriasDoServidor = [
+              {
+                'id': 1,
+                creation: '02/02/02 02:02:02',
+                nome: 'Celulares'
+              },
+              {
+                'id': 2,
+                creation: '03/03/03 02:02:02',
+                nome: 'Notebooks'
+              },
+              {
+                'id': 3,
+                creation: '04/04/04 02:02:02',
+                nome: 'Tablets'
+              }
+            ];
+            callbackSucesso(categoriasDoServidor);
+          } else if (callbackErro) {
+            callbackErro({'nome': 'Campo Obrigatório'});
+          }
+
+          if (callbackAlways) {
+            callbackAlways();
+          }
+          $rootScope.$digest();
+        }, delay);
+
+        console.log('Finalizando salvar do serviço');
       }
     };
   });
