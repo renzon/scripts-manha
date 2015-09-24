@@ -2,9 +2,10 @@
   var categoriaServicos = angular.module('categoria-servicos', []);
 
   categoriaServicos.factory('CategoriaAPI', function ($rootScope) {
+    const delay = 1;
     return {
       salvar: function (categoria, callbackSucesso, callbackErro, callbackAlways) {
-        const delay = 2000;
+
         console.log('Chamada ajax fake para salvar inciando');
         var id = 0;
         setTimeout(function () {
@@ -30,7 +31,6 @@
         console.log('Finalizando salvar do serviço');
       },
       listar: function (callbackSucesso, callbackErro, callbackAlways) {
-        const delay = 2000;
         setTimeout(function () {
           if (callbackSucesso) {
 

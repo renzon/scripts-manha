@@ -68,6 +68,11 @@
         categoria: '='
       },
       controller: function ($scope, CategoriaAPI) {
+        $scope.editandoFlag = false;
+
+        $scope.editarToggle = function () {
+          $scope.editandoFlag = !$scope.editandoFlag;
+        }
 
       }
 
