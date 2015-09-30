@@ -74,7 +74,14 @@
         $scope.editarToggle = function () {
           $scope.editandoFlag = !$scope.editandoFlag;
           $scope.categoriaParaEdicao.nome = $scope.categoria.nome;
-        }
+        };
+
+        $scope.editar = function () {
+          CategoriaAPI.editar($scope.categoriaParaEdicao, function (categoria) {
+            $scope.categoria.nome = categoria.nome;
+            $scope.editandoFlag = false;
+          });
+        };
 
       }
 

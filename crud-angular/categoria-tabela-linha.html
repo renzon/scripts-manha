@@ -5,12 +5,15 @@
   </td>
   <td>
     <span ng-hide="editandoFlag">{{categoria.nome}}</span>
+
+    <form ng-submit="editar()">
     <span class="input-group" style="width: 300px;" ng-show="editandoFlag">
       <input type="text" class="form-control" ng-model="categoriaParaEdicao.nome">
       <span class="input-group-btn">
-        <button class="btn btn-primary" type="button"><i class="glyphicon glyphicon-save"></i></button>
+        <button class="btn btn-primary" type="submit"><i class="glyphicon glyphicon-save"></i></button>
       </span>
     </span>
+    </form>
   </td>
   <td>{{categoria.id}}</td>
   <td>{{categoria.creation}}</td>

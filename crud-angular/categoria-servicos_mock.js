@@ -4,6 +4,28 @@
   categoriaServicos.factory('CategoriaAPI', function ($rootScope) {
     const delay = 1;
     return {
+      editar: function (categoria, callbackSucesso, callbackErro, callbackAlways) {
+
+        setTimeout(function () {
+          if (callbackSucesso && categoria.nome !== '') {
+
+            const categoriaDoServidor = {
+              'id': 1,
+              creation: '02/02/02 02:02:02',
+              nome: categoria.nome
+            };
+            callbackSucesso(categoriaDoServidor);
+          } else if (callbackErro && categoria.nome === '') {
+            callbackErro({'nome': 'Campo Obrigatório'});
+          }
+
+          if (callbackAlways) {
+            callbackAlways();
+          }
+          $rootScope.$digest();
+        }, delay);
+
+      },
       salvar: function (categoria, callbackSucesso, callbackErro, callbackAlways) {
 
         console.log('Chamada ajax fake para salvar inciando');
