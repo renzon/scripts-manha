@@ -53,6 +53,10 @@
         }, function () {
           $scope.listandoCategoriasFlag = false;
         });
+
+        $scope.removerLinha = function (index) {
+          $scope.categorias.splice(index, 1);
+        }
       }
 
     };
@@ -65,7 +69,8 @@
       templateUrl: 'categoria-tabela-linha.html',
       replace: true,
       scope: {
-        categoria: '='
+        categoria: '=',
+        deletarCategoriaListener: '&'
       },
       controller: function ($scope, CategoriaAPI) {
         $scope.editandoFlag = false;
@@ -80,6 +85,13 @@
           CategoriaAPI.editar($scope.categoriaParaEdicao, function (categoria) {
             $scope.categoria.nome = categoria.nome;
             $scope.editandoFlag = false;
+          });
+        };
+
+        $scope.deletar = function () {
+          CategoriaAPI.deletar($scope.categoria.id, function () {
+            $scope.deletarCategoriaListener();
+
           });
         };
 

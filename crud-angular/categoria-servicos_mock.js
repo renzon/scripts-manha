@@ -4,6 +4,23 @@
   categoriaServicos.factory('CategoriaAPI', function ($rootScope) {
     const delay = 1;
     return {
+      deletar: function (id, callbackSucesso, callbackErro, callbackAlways) {
+
+        setTimeout(function () {
+          if (callbackSucesso) {
+
+            callbackSucesso();
+          } else if (callbackErro && categoria.nome === '') {
+            callbackErro({'nome': 'Campo Obrigatório'});
+          }
+
+          if (callbackAlways) {
+            callbackAlways();
+          }
+          $rootScope.$digest();
+        }, delay);
+
+      },
       editar: function (categoria, callbackSucesso, callbackErro, callbackAlways) {
 
         setTimeout(function () {
