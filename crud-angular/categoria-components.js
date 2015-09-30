@@ -69,9 +69,11 @@
       },
       controller: function ($scope, CategoriaAPI) {
         $scope.editandoFlag = false;
+        $scope.categoriaParaEdicao = {};
 
         $scope.editarToggle = function () {
           $scope.editandoFlag = !$scope.editandoFlag;
+          $scope.categoriaParaEdicao.nome = $scope.categoria.nome;
         }
 
       }

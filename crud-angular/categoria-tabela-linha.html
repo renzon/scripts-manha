@@ -3,17 +3,17 @@
     <button class="btn btn-primary btn-sm" ng-click="editarToggle()"><i class="glyphicon glyphicon-pencil"></i></button>
 
   </td>
-  <td>{{categoria.id}}</td>
-  <td>{{categoria.creation}}</td>
   <td>
     <span ng-hide="editandoFlag">{{categoria.nome}}</span>
     <span class="input-group" style="width: 300px;" ng-show="editandoFlag">
-      <input type="text" class="form-control" placeholder="Search for...">
+      <input type="text" class="form-control" ng-model="categoriaParaEdicao.nome">
       <span class="input-group-btn">
         <button class="btn btn-primary" type="button"><i class="glyphicon glyphicon-save"></i></button>
       </span>
     </span>
   </td>
+  <td>{{categoria.id}}</td>
+  <td>{{categoria.creation}}</td>
   <td>
     <button class="btn btn-danger btn-sm"><i class="glyphicon glyphicon-trash"></i></button>
   </td>
