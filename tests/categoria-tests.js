@@ -24,4 +24,28 @@ $.get = function (url) {
 QUnit.test('Hello World', function (assert) {
   assert.strictEqual('http://localhost:8080/categorias/rest', getVarsGlobal.url, 'Verificando url de chamada ajax para listar categorias');
   assert.strictEqual(1, nGet, 'Verificando que get é chamado apenas uma vez');
+  var $tabelaCategoria = $('#tabela-categoria');
+  assert.strictEqual(0, $tabelaCategoria.children().length, 'Tabela vazia antes de retorno de listagem ajax');
+
+  const categoriasDoServidor = [
+    {
+      'id': 1,
+      creation: '02/02/02 02:02:02',
+      nome: 'Celulares'
+    },
+    {
+      'id': 2,
+      creation: '03/03/03 02:02:02',
+      nome: 'Notebooks'
+    },
+    {
+      'id': 3,
+      creation: '04/04/04 02:02:02',
+      nome: 'Tablets'
+    }
+  ];
+
+  getVarsGlobal.successCallback(categoriasDoServidor);
+
+  assert.strictEqual(3, $tabelaCategoria.children().length, 'Tabela vazia antes de retorno de listagem ajax');
 });
