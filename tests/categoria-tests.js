@@ -1,5 +1,7 @@
+var getVarsGlobal;
+var nGet = 0;
 $.get = function (url) {
-  console.log(url);
+  nGet++;
   var getVarsHolder = {
     'url': url,
     success: function (callback) {
@@ -14,9 +16,12 @@ $.get = function (url) {
     }
   };
 
+  getVarsGlobal = getVarsHolder;
+
   return getVarsHolder;
 };
 
 QUnit.test('Hello World', function (assert) {
-  assert.ok(true, 'Testando método ok');
+  assert.strictEqual('http://localhost:8080/categorias/rest', getVarsGlobal.url, 'Verificando url de chamada ajax para listar categorias');
+  assert.strictEqual(1, nGet, 'Verificando que get é chamado apenas uma vez');
 });

@@ -57,7 +57,7 @@ $(document).ready(function () {
     });
   }
 
-  $listarAjaxLoader.show()
+  $listarAjaxLoader.show();
   $.get('http://localhost:8080/categorias/rest').success(
     listarCategorias
   ).error(function () {
