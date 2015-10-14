@@ -46,6 +46,14 @@ QUnit.test('Hello World', function (assert) {
   ];
 
   getVarsGlobal.successCallback(categoriasDoServidor);
-
   assert.strictEqual(3, $tabelaCategoria.children().length, 'Tabela vazia antes de retorno de listagem ajax');
+
+  var $listarAjaxLoader = $('#listar-ajax-loader');
+
+  assert.ok($listarAjaxLoader.is(':visible'), 'Mostrando ajax loader');
+  getVarsGlobal.alwaysCallback();
+  assert.ok(!$listarAjaxLoader.is(':visible'), 'Mostrando ajax loader');
+
+
+
 });
