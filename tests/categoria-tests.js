@@ -52,7 +52,14 @@ QUnit.test('Hello World', function (assert) {
 
   assert.ok($listarAjaxLoader.is(':visible'), 'Mostrando ajax loader');
   getVarsGlobal.alwaysCallback();
-  assert.ok(!$listarAjaxLoader.is(':visible'), 'Mostrando ajax loader');
+
+  var esperarFimDaAnimacao = assert.async();
+
+  setTimeout(function () {
+    assert.ok(!$listarAjaxLoader.is(':visible'), 'Mostrando ajax loader');
+    esperarFimDaAnimacao()
+  }, 1000);
+
 
 
 
