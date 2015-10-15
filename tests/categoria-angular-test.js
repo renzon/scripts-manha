@@ -4,10 +4,20 @@ angular.module('categoria-servicos', []).factory(
   });
 angular.module('categoria-components');
 QUnit.test('Teste de Diretiva', function (assert) {
+  var injector = angular.injector(['ng', 'categoria-components']);
+  var el = angular.element('<categoria-form></categoria-form>');
+  var escopoRaiz;
+  injector.invoke(function ($compile, $rootScope, $templateCache) {
+    $templateCache.put('categoria-form.html', '<a>Blah</a>');
+    el = $compile(el)($rootScope);
+    escopoRaiz = $rootScope;
+  });
+  escopoRaiz.$digest();
+  var escopo = el.scope();
+  var escopoIsolado = el.isolateScope();
 
-
-  assert.strictEqual('Roger', escopo.categoria.nome, 'Nome inicial de categoria');
-  assert.notOk(escopo.salvandoCategoriaFlag, 'Não está fazendo salvamento');
+  assert.strictEqual('Roger', escopoIsolado.categoria.nome, 'Nome inicial de categoria');
+  assert.notOk(escopoIsolado.salvandoCategoriaFlag, 'Não está fazendo salvamento');
 
 });
 
