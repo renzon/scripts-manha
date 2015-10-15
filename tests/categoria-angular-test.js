@@ -1,6 +1,19 @@
+angular.module('categoria-servicos', []).factory(
+  'CategoriaAPI', function () {
+    return {};
+  });
+angular.module('categoria-components');
+QUnit.test('Teste de Diretiva', function (assert) {
+
+
+  assert.strictEqual('Roger', escopo.categoria.nome, 'Nome inicial de categoria');
+  assert.notOk(escopo.salvandoCategoriaFlag, 'Não está fazendo salvamento');
+
+});
+
 QUnit.test('Teste de Controlador Angular', function (assert) {
 
-  angular.module('categoria-components', []);
+
   angular.module('categoriaApp');
 
   var injector = angular.injector(['ng', 'categoriaApp']);
