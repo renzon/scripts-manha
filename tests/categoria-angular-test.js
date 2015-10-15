@@ -4,8 +4,9 @@ QUnit.test('Teste de Controlador Angular', function (assert) {
   angular.module('categoriaApp');
 
   var injector = angular.injector(['ng', 'categoriaApp']);
-
+  var $controllerFactories = injector.get('$controller');
   var escopo = {};
+  $controllerFactories('CategoriaCtrl', {'$scope': escopo});
 
 
   assert.strictEqual(0, escopo.categorias.length, 'Categorias vazio inicialmente');
